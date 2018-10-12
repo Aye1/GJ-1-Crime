@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
+    Collider2D triggerCollider;
     List<IInteractable> currentInteractablesList = new List<IInteractable>();
     Rigidbody2D myBody;
     float speed = 5;
@@ -12,6 +14,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
+        triggerCollider = GetComponents<Collider2D>().First(col => col.isTrigger);
     }
 
     // Update is called once per frame
@@ -40,9 +43,9 @@ public class Player : MonoBehaviour
 
     private void ManageInput()
     {
-        if (Input.GetKeyUp(KeyCode.DownArrow) 
-            || Input.GetKeyUp(KeyCode.UpArrow) 
-            || Input.GetKeyUp(KeyCode.RightArrow) 
+        if (Input.GetKeyUp(KeyCode.DownArrow)
+            || Input.GetKeyUp(KeyCode.UpArrow)
+            || Input.GetKeyUp(KeyCode.RightArrow)
             || Input.GetKeyUp(KeyCode.LeftArrow))
         {
             StopMovement();
@@ -51,7 +54,7 @@ public class Player : MonoBehaviour
         #region down key
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            // rotate
+            RotateTrigger(Directions.Down);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
@@ -61,7 +64,7 @@ public class Player : MonoBehaviour
         #region up key
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            // rotate
+            RotateTrigger(Directions.Up);
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -71,7 +74,7 @@ public class Player : MonoBehaviour
         #region right key
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            // rotate
+            RotateTrigger(Directions.Right);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -81,7 +84,7 @@ public class Player : MonoBehaviour
         #region left key
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            // rotate
+            RotateTrigger(Directions.Left);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -112,6 +115,27 @@ public class Player : MonoBehaviour
     private void StopMovement()
     {
         myBody.velocity = new Vector2(0, 0);
+    }
+    private void RotateTrigger(Directions dir)
+    {
+        Vector2 translationVector = new Vector2();
+        switch (dir)
+        {
+            case Directions.Up:
+                translationVector = Vector2.up;
+                break;
+            case Directions.Down:
+                translationVector = Vector2.down;
+                break;
+            case Directions.Left:
+                translationVector = Vector2.left;
+                break;
+            case Directions.Right:
+                translationVector = Vector2.right;
+                break;
+        }
+
+        triggerCollider.offset = translationVector * 0.5f;
     }
     #endregion movement
 
