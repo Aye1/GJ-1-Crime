@@ -5,6 +5,10 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Custiom ignores
+*.kra
+*.kra.meta
+
 # Visual Studio cache directory
 .vs/
 
