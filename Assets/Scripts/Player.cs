@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
 
     private void ManageInput()
     {
+        #region movement
         if (Input.GetKeyUp(KeyCode.DownArrow)
             || Input.GetKeyUp(KeyCode.UpArrow)
             || Input.GetKeyUp(KeyCode.RightArrow)
@@ -91,6 +92,13 @@ public class Player : MonoBehaviour
             AddMovement(Directions.Left);
         }
         #endregion left key
+        #endregion movement
+        #region action
+        if (Input.GetKey(KeyCode.Space) && currentInteractablesList.Any())
+        {
+            currentInteractablesList.First().Interact();
+        }
+        #endregion action
     }
     #region movement
     private void AddMovement(Directions dir)
