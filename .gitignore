@@ -9,6 +9,7 @@ Assets/AssetStoreTools*
 *.kra
 *.kra.meta
 *.psd
+Thumbs.db
 
 # Visual Studio cache directory
 .vs/
