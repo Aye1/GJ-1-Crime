@@ -30,8 +30,6 @@ public class Initializer : MonoBehaviour
                 }
             }
         }
-
-        Destroy(BaseHole.gameObject);
     }
 
     private void AddHoleTo(Vector2 position)
