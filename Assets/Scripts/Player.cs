@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     Rigidbody2D myBody;
     readonly float speed = 5;
     private bool lockMove;
+    public bool forceStopMove;
 
     // Use this for initialization
     void Start()
@@ -22,7 +23,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ManageInput();
+        if (forceStopMove)
+        {
+            ForceStop();
+        }
+        else
+        {
+            ManageInput();
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -50,6 +58,10 @@ public class Player : MonoBehaviour
             this.transform.position = collision.gameObject.GetComponent<Hole>().RespawnPosition;
             lockMove = true;
         }
+    }
+
+    private void ForceStop() {
+        StopMovement();
     }
 
     private void ManageInput()

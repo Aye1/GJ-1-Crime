@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     private static GameManager _instance;
+    private Player _player;
 
     public static GameManager Instance {
         get { return _instance; }
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour {
             _instance = this;
         }
         DontDestroyOnLoad(gameObject);
+        _player = FindObjectOfType<Player>();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +28,7 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-    public void FreezeAllButText() {
-
+    public void FreezeAllButText(bool on) {
+        _player.forceStopMove = on;
     }
 }
