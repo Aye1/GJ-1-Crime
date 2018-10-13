@@ -152,12 +152,12 @@ public class DialogBox : MonoBehaviour {
 
     private void CloseDialog()
     {
-        GameManager.Instance.FreezeAllButText(false);
         EventHandler handler = dialogClosing;
         if (handler != null)
         {
             handler(this, EventArgs.Empty);
         }
+        GameManager.Instance.FreezeAllButText(false);
         Destroy(gameObject);
     }
 }

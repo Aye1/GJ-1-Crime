@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     readonly float speed = 5;
     private bool lockMove;
     public bool forceStopMove;
+    public bool blockInteraction;
 
     // Use this for initialization
     void Start()
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Hole") && !Inventory.Instance.CanFly)
         {
             this.transform.position = collision.gameObject.GetComponent<Hole>().RespawnPosition;
+            transform.position = new Vector3(transform.position.x, transform.position.y, -2.0f);
             lockMove = true;
         }
     }
@@ -112,7 +114,7 @@ public class Player : MonoBehaviour
         #endregion left key
         #endregion movement
         #region action
-        if (Input.GetKey(KeyCode.Space) && interactionZone.CurrentInteractablesList.Any())
+        if (Input.GetKey(KeyCode.Space) && interactionZone.CurrentInteractablesList.Any() && !blockInteraction)
         {
             interactionZone.CurrentInteractablesList.First().Interact();
         }

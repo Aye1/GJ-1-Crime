@@ -30,5 +30,6 @@ public class GameManager : MonoBehaviour {
 
     public void FreezeAllButText(bool on) {
         _player.forceStopMove = on;
+        _player.blockInteraction = on;
     }
 }

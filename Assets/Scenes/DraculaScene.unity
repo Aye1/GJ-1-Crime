@@ -346,7 +346,7 @@ Transform:
   m_Children:
   - {fileID: 134059388}
   m_Father: {fileID: 433983744}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &272043848
 Animator:
@@ -520,12 +520,10 @@ Transform:
   - {fileID: 120700836}
   - {fileID: 1793917462}
   - {fileID: 1107847214}
-  - {fileID: 691365438}
-  - {fileID: 1082515259}
   - {fileID: 272043847}
   - {fileID: 1001658147}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &509885703
 GameObject:
@@ -711,6 +709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionZone: {fileID: 134059389}
   forceStopMove: 0
+  blockInteraction: 0
 --- !u!1 &691365437
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,8 +738,8 @@ Transform:
   m_LocalPosition: {x: -0.22030735, y: 2.562111, z: -0.9375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 433983744}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &691365439
 MonoBehaviour:
@@ -878,7 +877,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1001658146
 GameObject:
@@ -908,7 +907,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433983744}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1001658148
 MonoBehaviour:
@@ -1039,12 +1038,12 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1082515258}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 433983744}
-  m_RootOrder: 7
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1082515260
 MonoBehaviour:
