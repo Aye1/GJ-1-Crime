@@ -2628,8 +2628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fa965821c7e45debed511672bb73da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  picture: {fileID: 0}
-  characterName: 
+  picture: {fileID: 21300000, guid: 3db644fd7026e4fefae7aba2e2e08396, type: 3}
+  characterName: Freddy
 --- !u!1 &593676700
 GameObject:
   m_ObjectHideFlags: 0
