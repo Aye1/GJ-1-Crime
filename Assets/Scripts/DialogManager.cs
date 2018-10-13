@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour {
     public DialogBox dialog;
+    public Canvas canvas;
 
     public bool isDialogOpen = false;
 
@@ -30,6 +31,9 @@ public class DialogManager : MonoBehaviour {
         {
             DialogBox currentDialog = Instantiate(dialog);
             currentDialog.Init(dialogLines);
+            currentDialog.transform.SetParent(canvas.transform);
+            RectTransform rect = currentDialog.GetComponent<RectTransform>();
+            rect.offsetMax = new Vector2(20, rect.offsetMax.y);
             isDialogOpen = true;
             currentDialog.dialogClosing += DialogClosed;
         }

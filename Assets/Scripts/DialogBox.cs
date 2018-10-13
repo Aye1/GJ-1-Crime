@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DialogBox : MonoBehaviour {
 
-    public TextMeshPro textMesh;
+    public TextMeshProUGUI textMesh;
     public Image characterImage;
     public Sprite defaultSprite;
 
@@ -25,13 +25,13 @@ public class DialogBox : MonoBehaviour {
     // Runs before the Start()
     void Awake ()
     {
-        _dialogSound = GetComponent<AudioSource>();
+        //_dialogSound = GetComponent<AudioSource>();
     }
 
 	// Use this for initialization
 	void Start () {
         // Set the render camera to avoid messing with Prefab camera
-        GetComponent<Canvas>().worldCamera = Camera.main;
+        //GetComponent<Canvas>().worldCamera = Camera.main;
 	}
 	
 	// Update is called once per frame
@@ -106,7 +106,7 @@ public class DialogBox : MonoBehaviour {
                 _remainingText = _remainingText.Substring(1);
             }
             textMesh.text = _currentText;
-            _dialogSound.PlayOneShot(_dialogSound.clip, 0.5f);
+            //_dialogSound.PlayOneShot(_dialogSound.clip, 0.5f);
             yield return new WaitForSeconds(timeBetweenLetters);
         }
     }
