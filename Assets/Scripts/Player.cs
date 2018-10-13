@@ -41,6 +41,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Hole"))
+        {
+            this.transform.position = collision.gameObject.GetComponent<Hole>().RespawnPosition;
+            Debug.Log("Falling");
+        }
+    }
+
     private void ManageInput()
     {
         #region movement
@@ -120,10 +129,12 @@ public class Player : MonoBehaviour
                 break;
         }
     }
+
     private void StopMovement()
     {
         myBody.velocity = new Vector2(0, 0);
     }
+
     private void RotateTrigger(Directions dir)
     {
         Vector2 translationVector = new Vector2();
