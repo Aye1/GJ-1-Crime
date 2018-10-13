@@ -79,7 +79,7 @@ public class Dracula : Character
 
     }
 
-    private void ActivateDarkness(bool on) {
+    public void ActivateDarkness(bool on) {
         darkness.gameObject.SetActive(on);
     }
 }

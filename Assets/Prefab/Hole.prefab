@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb21e436435b5744aa4a33d52de2896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RespawnPosition: {x: 0, y: 0}
+  RespawnPosition: {x: -3, y: 5}
 --- !u!212 &212371764602224952
 SpriteRenderer:
   m_ObjectHideFlags: 1
