@@ -319,21 +319,33 @@ Prefab:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4154475870139148, guid: e303f689db4c88c49809cc121bdc946c, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154475870139148, guid: e303f689db4c88c49809cc121bdc946c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154475870139148, guid: e303f689db4c88c49809cc121bdc946c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.98
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e303f689db4c88c49809cc121bdc946c, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1858908798 stripped
+--- !u!1 &2010211406 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1276886842817746, guid: e303f689db4c88c49809cc121bdc946c,
+  m_CorrespondingSourceObject: {fileID: 1887756611908214, guid: e303f689db4c88c49809cc121bdc946c,
     type: 2}
   m_PrefabInternal: {fileID: 1858908797}
---- !u!95 &1858908799
+--- !u!95 &2010211407
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1858908798}
+  m_GameObject: {fileID: 2010211406}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6ac5c72b6be8fef4b85bf7039d15056c, type: 2}

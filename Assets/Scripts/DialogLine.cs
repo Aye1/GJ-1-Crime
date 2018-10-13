@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class DialogLine
+﻿public class DialogLine
 {
     public Character character;
     public string text;
@@ -11,7 +9,5 @@ public class DialogLine
         this.character = character;
     }
 
-    public DialogLine(string text):this(text,null)
-    {
-    }
+    public DialogLine(string text) : this(text, null) { }
 }

@@ -36,7 +36,7 @@ public class Initializer : MonoBehaviour
 
     private void AddHoleTo(Vector2 position)
     {
-        Instantiate(BaseHole, position, Quaternion.identity, this.transform);
+        Instantiate(BaseHole, new Vector3(position.x, position.y, 1), Quaternion.identity, this.transform);
     }
 
     private void CreateGrid()
