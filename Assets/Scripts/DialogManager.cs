@@ -33,7 +33,7 @@ public class DialogManager : MonoBehaviour {
             currentDialog.Init(dialogLines);
             currentDialog.transform.SetParent(canvas.transform);
             RectTransform rect = currentDialog.GetComponent<RectTransform>();
-            rect.offsetMax = new Vector2(20, rect.offsetMax.y);
+            rect.offsetMax = new Vector2(-20, rect.offsetMax.y);
             isDialogOpen = true;
             currentDialog.dialogClosing += DialogClosed;
         }
