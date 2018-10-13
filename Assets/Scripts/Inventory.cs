@@ -2,6 +2,8 @@
 
 public class Inventory : MonoBehaviour
 {
+    public bool CanFly { get; set; }
+
     private static Inventory _instance;
     public static Inventory Instance
     {

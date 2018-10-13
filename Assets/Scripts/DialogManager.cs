@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-public class DialogManager : MonoBehaviour {
+public class DialogManager : MonoBehaviour
+{
     public DialogBox dialog;
     public Canvas canvas;
 
@@ -11,15 +12,19 @@ public class DialogManager : MonoBehaviour {
     public EventHandler dialogClosing;
 
     private static DialogManager _instance;
-    public static DialogManager Instance {
+    public static DialogManager Instance
+    {
         get { return _instance; }
     }
 
     void Awake()
     {
-        if(_instance != null && _instance != this) {
+        if (_instance != null && _instance != this)
+        {
             Destroy(gameObject);
-        } else {
+        }
+        else
+        {
             _instance = this;
         }
         DontDestroyOnLoad(gameObject);
@@ -44,11 +49,7 @@ public class DialogManager : MonoBehaviour {
         DialogBox dialogClosed = (DialogBox)sender;
         dialogClosed.dialogClosing -= DialogClosed;
         isDialogOpen = false;
-        EventHandler handler = dialogClosing;
-        if (handler != null)
-        {
-            handler(this, EventArgs.Empty);
-        }
+        dialogClosing?.Invoke(this, EventArgs.Empty);
         Destroy(dialogClosed.gameObject);
     }
 }
