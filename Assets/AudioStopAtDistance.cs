@@ -7,7 +7,7 @@ public class AudioStopAtDistance : MonoBehaviour {
 
     Player _player;
     AudioSource _source;
-    float maxDist = 25.0f;
+    public float maxDist = 25.0f;
 
     // Use this for initialization
     void Start () {
