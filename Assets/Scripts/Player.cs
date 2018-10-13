@@ -1,13 +1,13 @@
 ﻿using Assets.Scripts.Utils;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
+    public PlayerInteractionZone interactionZone;
+
     Collider2D triggerCollider;
-    List<IInteractable> currentInteractablesList = new List<IInteractable>();
     Rigidbody2D myBody;
     readonly float speed = 5;
     private bool lockMove;
@@ -35,25 +35,7 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        IInteractable otherObj = collision.gameObject.GetComponent<IInteractable>();
-        if (otherObj != null)
-        {
-            currentInteractablesList.Add(otherObj);
-        }
-    }
-
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        IInteractable otherObj = collision.gameObject.GetComponent<IInteractable>();
-        if (otherObj != null)
-        {
-            currentInteractablesList.Remove(otherObj);
-        }
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Hole"))
+        if (collision.gameObject.CompareTag("Hole") && !Inventory.Instance.CanFly)
         {
             this.transform.position = collision.gameObject.GetComponent<Hole>().RespawnPosition;
             lockMove = true;
@@ -118,9 +100,10 @@ public class Player : MonoBehaviour
         #endregion left key
         #endregion movement
         #region action
-        if (Input.GetKey(KeyCode.Space) && currentInteractablesList.Any())
+        if (Input.GetKey(KeyCode.Space) )
         {
-            currentInteractablesList.First().Interact();
+            //&& interactionZone.CurrentInteractablesList.Any()
+            interactionZone.CurrentInteractablesList.First().Interact();
         }
         #endregion action
     }
@@ -170,7 +153,7 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        triggerCollider.offset = translationVector * 0.5f;
+        interactionZone.transform.localPosition = new Vector3(translationVector.x * 0.5f, translationVector.y * 0.5f, this.transform.position.z);
     }
     #endregion movement
 }

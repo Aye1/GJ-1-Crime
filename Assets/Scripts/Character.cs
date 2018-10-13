@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class Character : MonoBehaviour, IInteractable
 {
-
     public Sprite picture;
     public string characterName;
 
@@ -20,8 +20,17 @@ public abstract class Character : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        DoBeforeDialogue();
         DialogManager.Instance.StartDialog(GetDialogLines());
+        DialogManager.Instance.dialogClosing += DoAfterDialogue;
+    }
+
+    protected DialogLine BuildMultiLineDialog(Character character, params string[] lines)
+    {
+        return new DialogLine(string.Join(Environment.NewLine, lines), character);
     }
 
     protected abstract DialogLine[] GetDialogLines();
+    protected virtual void DoBeforeDialogue() { }
+    protected virtual void DoAfterDialogue(object sender, EventArgs args) { }
 }
