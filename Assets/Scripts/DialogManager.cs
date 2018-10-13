@@ -4,8 +4,6 @@ using UnityEngine;
 public class DialogManager : MonoBehaviour
 {
     public DialogBox dialog;
-    public Canvas canvas;
-
     public bool isDialogOpen = false;
 
     // Event sent when the dialog is closing
@@ -36,7 +34,7 @@ public class DialogManager : MonoBehaviour
         {
             DialogBox currentDialog = Instantiate(dialog);
             currentDialog.Init(dialogLines);
-            currentDialog.transform.SetParent(canvas.transform);
+            currentDialog.transform.SetParent(FindObjectOfType<Canvas>().transform);
             RectTransform rect = currentDialog.GetComponent<RectTransform>();
             rect.offsetMax = new Vector2(-20, rect.offsetMax.y);
             isDialogOpen = true;
