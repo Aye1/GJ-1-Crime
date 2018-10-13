@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class CameraScript : MonoBehaviour
 {
     public Player player;
+
+    private void Start()
+    {
+        transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+    }
 
     void Update()
     {

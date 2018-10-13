@@ -2,5 +2,5 @@
 
 public class Hole : MonoBehaviour
 {
-    public Vector3 RespawnPosition;
+    public Vector2 RespawnPosition;
 }

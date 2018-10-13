@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Assets.Scripts.Utils;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -8,7 +9,9 @@ public class Player : MonoBehaviour
     Collider2D triggerCollider;
     List<IInteractable> currentInteractablesList = new List<IInteractable>();
     Rigidbody2D myBody;
-    float speed = 5;
+    readonly float speed = 5;
+    private bool lockMove;
+    public bool forceStopMove;
 
     // Use this for initialization
     void Start()
@@ -20,7 +23,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ManageInput();
+        if (forceStopMove)
+        {
+            ForceStop();
+        }
+        else
+        {
+            ManageInput();
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -46,8 +56,12 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Hole"))
         {
             this.transform.position = collision.gameObject.GetComponent<Hole>().RespawnPosition;
-            Debug.Log("Falling");
+            lockMove = true;
         }
+    }
+
+    private void ForceStop() {
+        StopMovement();
     }
 
     private void ManageInput()
@@ -59,6 +73,7 @@ public class Player : MonoBehaviour
             || Input.GetKeyUp(KeyCode.LeftArrow))
         {
             StopMovement();
+            lockMove = false;
         }
 
         #region down key
@@ -113,6 +128,7 @@ public class Player : MonoBehaviour
     private void AddMovement(Directions dir)
     {
         StopMovement();
+        if (lockMove) return;
         switch (dir)
         {
             case Directions.Down:
@@ -157,12 +173,4 @@ public class Player : MonoBehaviour
         triggerCollider.offset = translationVector * 0.5f;
     }
     #endregion movement
-
-    private enum Directions
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
 }

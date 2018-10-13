@@ -16,8 +16,8 @@
     protected override DialogLine[] GetDialogLines()
     {
         DialogLine[] lines = {
-            new DialogLine("Line 1"),
-            new DialogLine("Line 2")
+            new DialogLine("Line 1", this),
+            new DialogLine("Line 2", this)
         };
         return lines;
     }
