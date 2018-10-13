@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hole
   - Interaction
+  - Escalier
   layers:
   - Default
   - TransparentFX

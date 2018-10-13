@@ -21,7 +21,6 @@ public class PlayerInteractionZone : MonoBehaviour
         {
             CurrentInteractablesList.Add(otherObj);
         }
-        else { return; }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
