@@ -9,11 +9,15 @@ public class HoleCollider : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
+                // go to Dracula
                 SceneManager.LoadScene(1);
+                this.transform.parent.transform.position = new Vector3(-3.4f, 10, -2);
             }
             else
             {
+                // go to Main
                 SceneManager.LoadScene(0);
+                this.transform.parent.transform.position = new Vector3(13, 13, -2);
             }
         }
     }

@@ -3,6 +3,9 @@
 public class Inventory : MonoBehaviour
 {
     public bool CanFly { get; set; }
+    public bool HasFreddyScroll { get; set; }
+    public bool CanUseTheForce { get; set; }
+    public bool HasSeenDeathStar { get; set; }
 
     private static Inventory _instance;
     public static Inventory Instance
@@ -16,7 +19,7 @@ public class Inventory : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if(_instance !=null && _instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
         }

@@ -4,8 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogBox : MonoBehaviour {
-
+public class DialogBox : MonoBehaviour
+{
     public TextMeshProUGUI textMesh;
     public Image characterImage;
     public Sprite defaultSprite;
@@ -23,21 +23,23 @@ public class DialogBox : MonoBehaviour {
     public event EventHandler dialogClosing;
 
     // Runs before the Start()
-    void Awake ()
+    void Awake()
     {
         //_dialogSound = GetComponent<AudioSource>();
     }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         // Set the render camera to avoid messing with Prefab camera
         //GetComponent<Canvas>().worldCamera = Camera.main;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         ManageInput();
-	}
+    }
 
     public void Init(DialogLine[] text)
     {
@@ -138,12 +140,13 @@ public class DialogBox : MonoBehaviour {
 
     private void ManageInput()
     {
-        if(Input.anyKeyDown)
+        if (Input.anyKeyDown)
         {
             if (displayTextFinished)
             {
                 DisplayNextLineOrClose();
-            } else
+            }
+            else
             {
                 FastEndCurrentText();
             }

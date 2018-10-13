@@ -30,6 +30,11 @@ public abstract class Character : MonoBehaviour, IInteractable
         return new DialogLine(string.Join(Environment.NewLine, lines), character);
     }
 
+    protected DialogLine BuildMultiLineDialog(params string[] lines)
+    {
+        return new DialogLine(string.Join(Environment.NewLine, lines));
+    }
+
     protected abstract DialogLine[] GetDialogLines();
     protected virtual void DoBeforeDialogue() { }
     protected virtual void DoAfterDialogue(object sender, EventArgs args) { }
