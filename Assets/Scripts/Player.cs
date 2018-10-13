@@ -112,9 +112,8 @@ public class Player : MonoBehaviour
         #endregion left key
         #endregion movement
         #region action
-        if (Input.GetKey(KeyCode.Space) )
+        if (Input.GetKey(KeyCode.Space) && interactionZone.CurrentInteractablesList.Any())
         {
-            //&& interactionZone.CurrentInteractablesList.Any()
             interactionZone.CurrentInteractablesList.First().Interact();
         }
         #endregion action
