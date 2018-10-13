@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/DraculaScene.unity
+    guid: 13ee7d9f8e9b2b94d9f14f8167ac393a
   m_configObjects: {}
