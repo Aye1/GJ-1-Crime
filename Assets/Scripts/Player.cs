@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
 {
     public PlayerInteractionZone interactionZone;
 
-    Collider2D triggerCollider;
     Animator animator;
 
     Rigidbody2D myBody;
@@ -19,7 +18,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
-        triggerCollider = GetComponents<Collider2D>().First(col => col.isTrigger);
         animator = GetComponent<Animator>();
     }
 
@@ -45,7 +43,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void ForceStop() {
+    private void ForceStop()
+    {
         StopMovement();
     }
 
