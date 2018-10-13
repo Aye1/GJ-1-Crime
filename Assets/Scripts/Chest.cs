@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour, IInteractable {
 
+    public bool isOpen;
+
     // Use this for initialization
     void Start () {
 		
@@ -16,6 +18,10 @@ public class Chest : MonoBehaviour, IInteractable {
 
     public void Interact()
     {
-        Debug.Log("Chest open!");
+        if (!isOpen)
+        {
+            Debug.Log("Chest open!");
+            isOpen = true;
+        }
     }
 }

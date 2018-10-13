@@ -21,7 +21,7 @@ public class DancefloorTile : MonoBehaviour
 
     public void ManageLight(Color color)
     {
-        SwitchLight(random.NextDouble() <= 0.5f, color);
+        SwitchLight(random.NextDouble() <= 0.8f, color);
     }
 
     private void SwitchLight(bool on, Color color)
