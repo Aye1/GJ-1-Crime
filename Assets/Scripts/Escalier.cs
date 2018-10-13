@@ -17,6 +17,12 @@ public class Escalier : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(1);
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            SceneManager.LoadScene(1);
+        } else 
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
