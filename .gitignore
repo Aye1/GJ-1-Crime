@@ -11,6 +11,8 @@ Assets/AssetStoreTools*
 *.psd
 *.psd.meta
 Thumbs.db
+*Thumbs.db
+*Thumbs.db.meta
 
 # Visual Studio cache directory
 .vs/
