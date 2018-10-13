@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseHole: {fileID: 114312946280338528, guid: 5541c9939327882498722dfd2d59fc91, type: 2}
   xMin: -1
-  xMax: 5
+  xMax: 4
   yMin: -5
   yMax: 15
   respawn: {x: -3, y: 5}
@@ -1384,6 +1384,7 @@ MonoBehaviour:
   picture: {fileID: 0}
   characterName: Dracula
   TeleportTo: {x: 5, y: 4}
+  darkness: {fileID: 1073179514}
 --- !u!61 &1793917464
 BoxCollider2D:
   m_ObjectHideFlags: 0

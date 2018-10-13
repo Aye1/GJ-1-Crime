@@ -1,9 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dracula : Character
 {
     public Vector2 TeleportTo;
+    public Image darkness;
 
     private bool _isOnTheOtherSide;
 
@@ -57,6 +59,7 @@ public class Dracula : Character
         {
             this.transform.SetPositionAndRotation(TeleportTo, Quaternion.identity);
             _isOnTheOtherSide = true;
+            ActivateDarkness(true);
         }
         else
         {            
@@ -74,5 +77,9 @@ public class Dracula : Character
     void Update()
     {
 
+    }
+
+    private void ActivateDarkness(bool on) {
+        darkness.gameObject.SetActive(on);
     }
 }
