@@ -10,12 +10,13 @@ public class Dancefloor : MonoBehaviour
     Timer _timer;
     Random _random;
     bool _shouldUpdateTiles = false;
+    const int time = 6000 / 13;
 
     // Use this for initialization
     void Start()
     {
         //timer = new Timer(new TimerCallback(OnTimerTick), null, 1000, 0);
-        _timer = new Timer(OnTimerTick, null, 0, 1000);
+        _timer = new Timer(OnTimerTick, null, 0, time);
         _random = new Random();
     }
 
