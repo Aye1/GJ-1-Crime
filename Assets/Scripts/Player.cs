@@ -7,6 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Collider2D triggerCollider;
+    Animator animator;
     List<IInteractable> currentInteractablesList = new List<IInteractable>();
     Rigidbody2D myBody;
     readonly float speed = 5;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody2D>();
         triggerCollider = GetComponents<Collider2D>().First(col => col.isTrigger);
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -73,6 +75,8 @@ public class Player : MonoBehaviour
             || Input.GetKeyUp(KeyCode.LeftArrow))
         {
             StopMovement();
+            animator.SetInteger("Walk", 0);
+
             lockMove = false;
         }
 
@@ -84,6 +88,8 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
         {
             AddMovement(Directions.Down);
+            animator.SetInteger("Walk", 1);
+
         }
         #endregion down key        
         #region up key
@@ -94,6 +100,8 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {
             AddMovement(Directions.Up);
+            animator.SetInteger("Walk", 4);
+
         }
         #endregion up key        
         #region right key
@@ -104,6 +112,8 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             AddMovement(Directions.Right);
+            animator.SetInteger("Walk", 3);
+
         }
         #endregion right key       
         #region left key
@@ -114,6 +124,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             AddMovement(Directions.Left);
+            animator.SetInteger("Walk", 2);
         }
         #endregion left key
         #endregion movement
