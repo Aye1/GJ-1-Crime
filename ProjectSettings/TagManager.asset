@@ -50,3 +50,6 @@ TagManager:
   - name: Brasero
     uniqueID: 595500669
     locked: 0
+  - name: Player
+    uniqueID: 2426481265
+    locked: 0
