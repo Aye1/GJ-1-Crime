@@ -4,10 +4,15 @@ using System.Collections.Generic;
 public class Prisonners : Character
 {
 
-    private List<DialogLine> allLines = new List<DialogLine>
+    private List<DialogLine> allLines;
+
+    private void Start()
     {
-        new DialogLine("Je suis pas venu ici pour souffrir OK ?")
-    };
+        allLines = new List<DialogLine>
+        {
+            new DialogLine("Je suis pas venu ici pour souffrir OK ?", this)
+        };
+    }
 
     protected override DialogLine[] GetDialogLines()
     {
@@ -19,7 +24,7 @@ public class Prisonners : Character
                 allLines[index]
             };
         }
-        else if(!Inventory.Instance.HasVictim)
+        else if (!Inventory.Instance.HasVictim)
         {
             return new DialogLine[]
             {

@@ -15,7 +15,7 @@ public class SwaggVador : Character
         }
 
         List<DialogLine> aggregatedLines = new List<DialogLine>();
-        if (!Inventory.Instance.HasSeenVador && !_questGiven)
+        if (!Inventory.Instance.HasSeenVador && !_questGiven && !Inventory.Instance.HasTakenDeathStar)
         {
             aggregatedLines.Add(
                 BuildMultiLineDialog(
@@ -74,8 +74,7 @@ public class SwaggVador : Character
             aggregatedLines.Add(new DialogLine("Voilà votre Death Star, M. Vador", FindObjectOfType<Player>()));
             aggregatedLines.Add(new DialogLine("La soirée peut repreeeeendre", this));
             Inventory.Instance.HasTakenDeathStar = false;
-            _deathStarReturned = true;
-            FindObjectOfType<Dancefloor>().SpotlightsOn();
+            _deathStarReturned = true;            
         }
         return aggregatedLines.ToArray();
     }
@@ -86,6 +85,10 @@ public class SwaggVador : Character
         {
             Inventory.Instance.CanUseTheForce = true;
             _willGrantForce = false;
+        }
+        if (_deathStarReturned)
+        {
+            FindObjectOfType<Dancefloor>().SpotlightsOn();
         }
     }
 }
