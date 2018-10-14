@@ -2,15 +2,18 @@
 
 public class SwaggVador : Character
 {
+    private bool _deathStarReturned;
+    private bool _questGiven;
+
     protected override DialogLine[] GetDialogLines()
     {
-        if (Inventory.Instance.CanUseTheForce)
+        if (Inventory.Instance.CanUseTheForce && _deathStarReturned)
         {
             return GetABlankPhrase(this);
         }
 
         List<DialogLine> aggregatedLines = new List<DialogLine>();
-        if (!Inventory.Instance.HasSeenVador)
+        if (!Inventory.Instance.HasSeenVador && !_questGiven)
         {
             aggregatedLines.Add(
                 BuildMultiLineDialog(
@@ -26,7 +29,8 @@ public class SwaggVador : Character
             aggregatedLines.Add(BuildMultiLineDialog(
                     this,
                     ".....*hmmmm kssssh*.....",
-                    "Par contre là je suis en pleine descente et j'ai perdu ma boule disco, si tu la trouves ramènes la moi et tu pourras utiliser le dance floor"));
+                    "Par contre la je suis en pleine descente et j'ai perdu ma boule disco, si tu la trouves ramenes la moi et tu pourras utiliser le dance floor"));
+            _questGiven = true;
         }
         else
         {
@@ -37,9 +41,10 @@ public class SwaggVador : Character
                     "Et ma boule disco ?"));
         }
 
-        if(Inventory.Instance.HasSeenDeathStar)
+        if(Inventory.Instance.HasSeenDeathStar && !Inventory.Instance.HasTakenDeathStar)
         {
             Inventory.Instance.CanUseTheForce = true;
+            aggregatedLines.Add(new DialogLine("J'ai l'ai trouvée, elle est devant l'escalier", FindObjectOfType<Player>()));
             aggregatedLines.Add(
                 BuildMultiLineDialog(
                     this,
@@ -60,6 +65,13 @@ public class SwaggVador : Character
                     this,
                     ".....*hmmmm kssssh*.....",
                     "Utilise la haine et tout ça, tu verras c'est facile."));
+        }
+
+        if(Inventory.Instance.HasTakenDeathStar && !_deathStarReturned) {
+            aggregatedLines.Add(new DialogLine("Voilà votre Death Star, M. Vador", FindObjectOfType<Player>()));
+            aggregatedLines.Add(new DialogLine("La soirée peut repreeeeendre", this));
+            Inventory.Instance.HasTakenDeathStar = false;
+            _deathStarReturned = true;
         }
         return aggregatedLines.ToArray();
     }
