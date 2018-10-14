@@ -1152,7 +1152,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1449,6 +1449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   picture: {fileID: 21300000, guid: 1da6cd04144fa41e99789e835cacf667, type: 3}
   characterName: Dracula
+  canInteract: 1
   TeleportTo: {x: 5, y: 4}
   darkness: {fileID: 1073179514}
 --- !u!61 &1793917464

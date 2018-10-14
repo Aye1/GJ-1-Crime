@@ -18,18 +18,16 @@ public class Dracula : Character
                 BuildMultiLineDialog(
                     this,
                     "Tiens donc, un étudiant.",
-                    "Qu'est-ce qui t'amène ici ?",
-                    "Tu es inscrit en cours d'hémologie et tu veux goûter mes grands crus ?"),
+                    "Qu'est-ce qui t'amène ici?"),
+                new DialogLine("Tu es inscrit en cours d'hémologie et tu veux goûter mes grands crus ?", this),
                 BuildMultiLineDialog(
                     this,
                     "Ha, tu veux apprendre à voler...",
-                    "Ce n'est pas au programme de ton cursus mais je ne vois pas pourquoi tu ne pourrais pas suivre de cours optionnels.",
-                    "Par contre tu vas devoir te montrer apte en réussissant l'examen."),
-                BuildMultiLineDialog(
-                    this,
-                    "Devant toi tu peux voir une passerelle qui surplombe un gouffre, tu dois la traverser.",
-                    "Tu trouves probablement ça facile, mais attention, tu vas devoir faire tout ça dans le noir le plus complet, tel un vrai vampire.",
-                    "Rejoins moi de l'autre côté pour valider cette épreuve et nous reparlerons d'apprendre à voler.")
+                    "Ce n'est pas au programme de ton cursus mais je ne vois pas pourquoi tu ne pourrais pas suivre de cours optionnels."),
+                new DialogLine("Par contre tu vas devoir te montrer apte en réussissant l'examen.", this),
+                new DialogLine("Devant toi tu peux voir une passerelle qui surplombe un gouffre, tu dois la traverser.", this),
+                new DialogLine("Tu trouves probablement ça facile, mais attention, tu vas devoir faire tout ça dans le noir le plus complet, tel un vrai vampire.",this),
+                new DialogLine("Rejoins moi de l'autre côté pour valider cette épreuve et nous reparlerons d'apprendre à voler.", this)
             };
         }
         else
