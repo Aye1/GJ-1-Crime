@@ -7,11 +7,11 @@ public class Dracula : Character
     public Vector2 TeleportTo;
     public Image darkness;
 
-    private bool _isOnTheOtherSide;
+    public bool IsOnTheOtherSide { get; private set; }
 
     protected override DialogLine[] GetDialogLines()
     {
-        if (!_isOnTheOtherSide)
+        if (!IsOnTheOtherSide)
         {
             return new DialogLine[]
             {
@@ -53,31 +53,15 @@ public class Dracula : Character
 
     protected override void DoAfterDialogue(object sender, EventArgs args)
     {
-        if (!_isOnTheOtherSide)
+        if (!IsOnTheOtherSide)
         {
             this.transform.SetPositionAndRotation(TeleportTo, Quaternion.identity);
-            _isOnTheOtherSide = true;
-            ActivateDarkness(true);
+            IsOnTheOtherSide = true;
+            FindObjectOfType<Initializer>().HideHoles();
         }
         else
-        {            
+        {
             Inventory.Instance.CanFly = true;
         }
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void ActivateDarkness(bool on) {
-        darkness.gameObject.SetActive(on);
-    }
+    }   
 }

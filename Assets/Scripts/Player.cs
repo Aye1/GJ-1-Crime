@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Utils;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
@@ -39,7 +40,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Hole"))
         {
-            if(Inventory.Instance.CanFly)
+            if (Inventory.Instance.CanFly)
             {
                 animator.SetBool("IsFlying", true);
             }
@@ -48,6 +49,15 @@ public class Player : MonoBehaviour
                 this.transform.position = collision.gameObject.GetComponent<Hole>().RespawnPosition;
                 transform.position = new Vector3(transform.position.x, transform.position.y, -2.0f);
                 lockMove = true;
+                if (SceneManager.GetActiveScene().buildIndex == 1) //on est dans la scene dracula
+                {
+                    if (FindObjectOfType<Dracula>().IsOnTheOtherSide)
+                    {
+                        var myInitializer = FindObjectOfType<Initializer>();
+                        myInitializer.ShowHoles();
+                        var MyTimer = new System.Threading.Timer(_ => myInitializer.mustHideHoles = true, null, 750, 0);
+                    }
+                }
             }
         }
     }

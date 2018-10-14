@@ -8,16 +8,20 @@ public class Initializer : MonoBehaviour
     public Hole BaseHole;
     public int xMin, xMax, yMin, yMax;
     public Vector2 respawn;
+    public bool mustHideHoles;
 
     private bool[,] _gridIsPath;
     private bool _isStraightLine = true;
     private int _deltaX, _deltaY;
+
+    private List<Hole> allHoles;
 
     void Start()
     {
         _deltaX = xMax - xMin;
         _deltaY = yMax - yMin;
         BaseHole.RespawnPosition = respawn;
+        allHoles = new List<Hole>();
 
         CreateGrid();
         for (int currX = 0; currX < _deltaX; currX++)
@@ -32,9 +36,34 @@ public class Initializer : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (mustHideHoles)
+        {
+            HideHoles();
+            mustHideHoles = false;
+        }
+    }
+
+    public void HideHoles()
+    {
+        foreach (var currHole in allHoles)
+        {
+            currHole.transform.position = new Vector3(currHole.transform.position.x, currHole.transform.position.y, 100);
+        }
+    }
+
+    public void ShowHoles()
+    {
+        foreach (var currHole in allHoles)
+        {
+            currHole.transform.position = new Vector3(currHole.transform.position.x, currHole.transform.position.y, 1);
+        }
+    }
+
     private void AddHoleTo(Vector2 position)
     {
-        Instantiate(BaseHole, new Vector3(position.x, position.y, 1), Quaternion.identity, this.transform);
+        allHoles.Add(Instantiate(BaseHole, new Vector3(position.x, position.y + 0.5f, 1), Quaternion.identity, this.transform));
     }
 
     private void CreateGrid()
