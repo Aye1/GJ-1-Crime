@@ -958,7 +958,7 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: IsFlying
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -1802,7 +1802,7 @@ AnimatorStateMachine:
     m_Position: {x: 124.05908, y: 854.2253, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102826753989717862}
-    m_Position: {x: 672, y: 732, z: 0}
+    m_Position: {x: 300, y: 540, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102315964658679830}
     m_Position: {x: 420, y: 1212, z: 0}
