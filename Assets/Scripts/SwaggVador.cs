@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 public class SwaggVador : Character
 {
     private bool _deathStarReturned;
     private bool _questGiven;
+    private bool _willGrantForce;
 
     protected override DialogLine[] GetDialogLines()
     {
@@ -41,9 +43,9 @@ public class SwaggVador : Character
                     "Et ma boule disco ?"));
         }
 
-        if(Inventory.Instance.HasSeenDeathStar && !Inventory.Instance.HasTakenDeathStar)
+        if (Inventory.Instance.HasSeenDeathStar && !Inventory.Instance.HasTakenDeathStar)
         {
-            Inventory.Instance.CanUseTheForce = true;
+            _willGrantForce = true;
             aggregatedLines.Add(new DialogLine("Je l'ai trouvée, elle est devant l'escalier", FindObjectOfType<Player>()));
             aggregatedLines.Add(
                 BuildMultiLineDialog(
@@ -67,7 +69,8 @@ public class SwaggVador : Character
                     "Utilise la haine et tout ça, tu verras c'est facile."));
         }
 
-        if(Inventory.Instance.HasTakenDeathStar && !_deathStarReturned) {
+        if (Inventory.Instance.HasTakenDeathStar && !_deathStarReturned)
+        {
             aggregatedLines.Add(new DialogLine("Voilà votre Death Star, M. Vador", FindObjectOfType<Player>()));
             aggregatedLines.Add(new DialogLine("La soirée peut repreeeeendre", this));
             Inventory.Instance.HasTakenDeathStar = false;
@@ -75,5 +78,14 @@ public class SwaggVador : Character
             FindObjectOfType<Dancefloor>().SpotlightsOn();
         }
         return aggregatedLines.ToArray();
+    }
+
+    protected override void DoAfterDialogue(object sender, EventArgs args)
+    {
+        if (_willGrantForce)
+        {
+            Inventory.Instance.CanUseTheForce = true;
+            _willGrantForce = false;
+        }
     }
 }
