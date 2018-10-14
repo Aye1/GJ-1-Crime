@@ -24,7 +24,7 @@ public abstract class Character : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (canInteract)
+        if (canInteract && !GameManager.Instance.isGameFinished)
         {
             canInteract = false;
             DoBeforeDialogue();

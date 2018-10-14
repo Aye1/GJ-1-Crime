@@ -44,7 +44,7 @@ public class SwaggVador : Character
         if(Inventory.Instance.HasSeenDeathStar && !Inventory.Instance.HasTakenDeathStar)
         {
             Inventory.Instance.CanUseTheForce = true;
-            aggregatedLines.Add(new DialogLine("J'ai l'ai trouvée, elle est devant l'escalier", FindObjectOfType<Player>()));
+            aggregatedLines.Add(new DialogLine("Je l'ai trouvée, elle est devant l'escalier", FindObjectOfType<Player>()));
             aggregatedLines.Add(
                 BuildMultiLineDialog(
                     this,

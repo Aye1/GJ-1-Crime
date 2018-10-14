@@ -69,6 +69,9 @@ public class Player : Character
 
     private void ManageInput()
     {
+        if(GameManager.Instance.isGameFinished) {
+            return;
+        }
         #region movement
         if (Input.GetKeyUp(KeyCode.DownArrow)
             || Input.GetKeyUp(KeyCode.UpArrow)

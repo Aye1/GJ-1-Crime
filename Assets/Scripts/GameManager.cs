@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private Player _player;
     public bool shouldTeleportToStairs = false;
     public GameObject endGameScreen;
+    public bool isGameFinished;
 
     public static GameManager Instance
     {
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void DisplayEndGameScreen() {
+        isGameFinished = true;
         endGameScreen.SetActive(true);
     }
 }
