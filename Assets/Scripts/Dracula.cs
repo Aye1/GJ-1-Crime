@@ -11,7 +11,11 @@ public class Dracula : Character
 
     protected override DialogLine[] GetDialogLines()
     {
-        if (!IsOnTheOtherSide)
+        if (Inventory.Instance.CanFly)
+        {
+            return GetABlankPhrase(this);
+        }
+        else if (!IsOnTheOtherSide)
         {
             return new DialogLine[]
             {
@@ -26,7 +30,7 @@ public class Dracula : Character
                     "Ce n'est pas au programme de ton cursus mais je ne vois pas pourquoi tu ne pourrais pas suivre de cours optionnels."),
                 new DialogLine("Par contre tu vas devoir te montrer apte en réussissant l'examen.", this),
                 new DialogLine("Devant toi tu peux voir une passerelle qui surplombe un gouffre, tu dois la traverser.", this),
-                new DialogLine("Tu trouves probablement ça facile, mais attention, tu vas devoir faire tout ça dans le noir le plus complet, tel un vrai vampire.",this),
+                new DialogLine("Tu trouves probablement ça facile, mais attention, tu vas devoir faire tout ça à l'aveugle, tel un vrai vampire.",this),
                 new DialogLine("Rejoins moi de l'autre côté pour valider cette épreuve et nous reparlerons d'apprendre à voler.", this)
             };
         }
@@ -63,5 +67,5 @@ public class Dracula : Character
         {
             Inventory.Instance.CanFly = true;
         }
-    }   
+    }
 }

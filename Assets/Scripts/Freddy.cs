@@ -31,17 +31,26 @@ public class Freddy : Character
                     "Un Formulaire de Demande de Prisonnier, vous n'êtes pas très vif vous..."));
             aggregatedLines.Add(BuildMultiLineDialog(
                     this,
-                    "Vous en trouverez un dans la remise à l'autre bout du hall mais attention le seuil s'est effondré",
+                    "Vous en trouverez un dans la remise à l'autre bout du hall mais attention le sol s'est effondré."));
+            aggregatedLines.Add(BuildMultiLineDialog(
+                    this,
                     "On attend la livraison d'un formulaire SS... Sauvetage des Sols"));
         }
-        else
+        else if (!Inventory.Instance.HasVictim)
         {
             Inventory.Instance.AllowedToTakeVictim = true;
             aggregatedLines.Add(
                 BuildMultiLineDialog(
                     this,
-                    "Vous y avez mis le temps, il va falloir vous remuer un peu si vous voulez réussir vos études.",
-                    "Tout semble en règle, vous pouvez prélever."));            
+                    "Vous y avez mis le temps, il va falloir vous remuer un peu si vous voulez réussir vos études."));
+            aggregatedLines.Add(
+                BuildMultiLineDialog(
+                    this,
+                    "Tout semble en règle, vous pouvez prélever."));
+        }
+        else
+        {
+            return GetABlankPhrase(this);
         }
 
         return aggregatedLines.ToArray();
