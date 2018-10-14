@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 212223758055776066}
   - component: {fileID: 61404801520373712}
   - component: {fileID: 114975696100984006}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Escalier
   m_TagString: Escalier
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908586804791770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22, y: 13.5, z: -0.06}
+  m_LocalPosition: {x: 18.296646, y: 13.234871, z: -0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4756056086699842}
@@ -164,7 +164,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007543564, y: 1.0281124}
+  m_Offset: {x: 0.04548359, y: 1.3144517}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -175,7 +175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4682388, y: 1.9437752}
+  m_Size: {x: 0.17440987, y: 0.73478794}
   m_EdgeRadius: 0
 --- !u!114 &114975696100984006
 MonoBehaviour:
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fad802df226a4ab794ff8df128d5951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &212223758055776066
 SpriteRenderer:
   m_ObjectHideFlags: 1

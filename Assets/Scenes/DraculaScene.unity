@@ -162,6 +162,7 @@ MonoBehaviour:
   yMin: -9
   yMax: 7
   respawn: {x: -3, y: 0}
+  mustHideHoles: 0
 --- !u!1 &433983743
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,12 +238,12 @@ Prefab:
     - target: {fileID: 114975696100984006, guid: 096c91a0fdcbd4247952a7ae66a1f6db,
         type: 2}
       propertyPath: exitPosition.x
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 114975696100984006, guid: 096c91a0fdcbd4247952a7ae66a1f6db,
         type: 2}
       propertyPath: exitPosition.y
-      value: 10
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 114975696100984006, guid: 096c91a0fdcbd4247952a7ae66a1f6db,
         type: 2}
