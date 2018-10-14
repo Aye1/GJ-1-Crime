@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour
+public class Player : Character
 {
     public PlayerInteractionZone interactionZone;
 
@@ -183,6 +183,12 @@ public class Player : MonoBehaviour
         }
 
         interactionZone.transform.localPosition = new Vector3(translationVector.x * 0.5f, translationVector.y * 0.5f, this.transform.position.z);
+    }
+
+    protected override DialogLine[] GetDialogLines()
+    {
+        //Do ntohing
+        return null;
     }
     #endregion movement
 }

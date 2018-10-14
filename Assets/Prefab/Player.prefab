@@ -241,6 +241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eafb6dc86c340e41bf184b10bb9280c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  picture: {fileID: 21300000, guid: 955839980362d4ab2be3d237ca26c006, type: 3}
+  characterName: Vous
+  canInteract: 0
   interactionZone: {fileID: 114830699329940090}
   forceStopMove: 0
   blockInteraction: 0

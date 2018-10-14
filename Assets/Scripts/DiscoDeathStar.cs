@@ -16,11 +16,11 @@ public class DiscoDeathStar : Character
 
         if (!Inventory.Instance.CanUseTheForce)
         {
-            return new DialogLine[] { new DialogLine("Ca semble extrêmemement lourd...") };
+            return new DialogLine[] { new DialogLine("Ca semble extrêmemement lourd...", FindObjectOfType<Player>()) };
         }
         else
         {
-            return new DialogLine[] { new DialogLine("Vous soulevez sans peine la Disco Death Star et l'écartez du chemin") };
+            return new DialogLine[] { new DialogLine("La Force est avec moiiiiiiii !", FindObjectOfType<Player>()) };
         }
     }
 
