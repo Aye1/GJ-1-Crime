@@ -51,13 +51,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Hole"))
-        {
-            animator.SetBool("IsFlying", false);
-        }
-    }
+
     private void ForceStop()
     {
         StopMovement();
