@@ -19,7 +19,7 @@ public class Prisonners : Character
                 allLines[index]
             };
         }
-        else
+        else if(!Inventory.Instance.HasVictim)
         {
             return new DialogLine[]
             {
@@ -32,6 +32,15 @@ public class Prisonners : Character
                 BuildMultiLineDialog(
                     this,
                     "PITIE... NOOOON !")
+            };
+        }
+        else
+        {
+            return new DialogLine[]
+            {
+                BuildMultiLineDialog(
+                    FindObjectOfType<Freddy>(),
+                    "Votre formulaire n'est valable que pour une ressource !"),
             };
         }
     }
