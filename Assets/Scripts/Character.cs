@@ -35,6 +35,7 @@ public abstract class Character : MonoBehaviour, IInteractable
 
     private void WaitBeforeNextInteract(object sender, EventArgs args) {
         interactTimer = new Timer(_ => canInteract = true, null, 500, 0);
+        DialogManager.Instance.dialogClosing -= DoAfterDialogue;
     }
 
     protected DialogLine BuildMultiLineDialog(Character character, params string[] lines)

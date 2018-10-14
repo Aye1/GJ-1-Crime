@@ -2,6 +2,14 @@
 
 public class DiscoDeathStar : Character
 {
+    void Start()
+    {
+        if (Inventory.Instance.CanUseTheForce)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
     protected override DialogLine[] GetDialogLines()
     {
         Inventory.Instance.HasSeenDeathStar = true;

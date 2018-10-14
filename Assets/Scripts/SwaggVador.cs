@@ -1,49 +1,46 @@
-﻿public class SwaggVador : Character
+﻿using System.Collections.Generic;
+
+public class SwaggVador : Character
 {
     protected override DialogLine[] GetDialogLines()
     {
-        if (!Inventory.Instance.CanUseTheForce)
-        {
-            return new DialogLine[]
-            {
+        List<DialogLine> aggregatedLines = new List<DialogLine>();
+        
+            aggregatedLines.Add(
                 BuildMultiLineDialog(
                     this,
-                    "Tiens donc, un étudiant.",
-                    "Qu'est-ce qui t'amène ici ?",
-                    "Tu es inscrit en cours d'hémologie et tu veux goûter mes grands crus ?"),
+                    ".....*hmmmm kssssh*.....",
+                    "T'es qui toi ?"));
+            aggregatedLines.Add(
                 BuildMultiLineDialog(
                     this,
-                    "Ha, tu veux apprendre à voler...",
-                    "Ce n'est pas au programme de ton cursus mais je ne vois pas pourquoi tu ne pourrais pas suivre de cours optionnels.",
-                    "Par contre tu vas devoir te montrer apte en réussissant l'examen."),
-                BuildMultiLineDialog(
+                    ".....*hmmmm kssssh*.....",
+                    "Alors, c'est qui le roi de la nuit ? C'est toujours Freddy ?",
+                    "Non c'est Dark V !"));
+            aggregatedLines.Add(BuildMultiLineDialog(
                     this,
-                    "Devant toi tu peux voir une passerelle qui surplombe un gouffre, tu dois la traverser.",
-                    "Tu trouves probablement ça facile, mais attention, tu vas devoir faire tout ça dans le noir le plus complet, tel un vrai vampire.",
-                    "Rejoins moi de l'autre côté pour valider cette épreuve et nous reparlerons d'apprendre à voler.")
-            };
-        }
-        else
+                    ".....*hmmmm kssssh*.....",
+                    "Par contre là je suis en pleine descente et j'ai perdu ma boule disco, si tu la trouves ramènes la moi et tu pourras utiliser le dance floor"));
+   
+        if(Inventory.Instance.HasSeenDeathStar)
         {
             Inventory.Instance.CanUseTheForce = true;
-            return new DialogLine[]
-            {
+            aggregatedLines.Add(
                 BuildMultiLineDialog(
                     this,
-                    "Tiens donc, un étudiant.",
-                    "Qu'est-ce qui t'amène ici ?",
-                    "Tu es inscrit en cours d'hémologie et tu veux goûter mes grands crus ?"),
+                    ".....*hmmmm kssssh*.....",
+                    "Tu l'as vue ? Elle est dans l'escalier au fond du hall ? C'est beaucoup trop loin pour moi"));
+            aggregatedLines.Add(
                 BuildMultiLineDialog(
                     this,
-                    "Ha, tu veux apprendre à voler...",
-                    "Ce n'est pas au programme de ton cursus mais je ne vois pas pourquoi tu ne pourrais pas suivre de cours optionnels.",
-                    "Par contre tu vas devoir te montrer apte en réussissant l'examen."),
+                    ".....*hmmmm kssssh*.....",
+                    "Ecoutes, je vais te faire une injection de medichloriens pour que tu puisses utiliser la Force."));
+            aggregatedLines.Add(
                 BuildMultiLineDialog(
                     this,
-                    "Devant toi tu peux voir une passerelle qui surplombe un gouffre, tu dois la traverser.",
-                    "Tu trouves probablement ça facile, mais attention, tu vas devoir faire tout ça dans le noir le plus complet, tel un vrai vampire.",
-                    "Rejoins moi de l'autre côté pour valider cette épreuve et nous reparlerons d'apprendre à voler.")
-            };
+                    ".....*hmmmm kssssh*.....",
+                    "Hahaha, je t'ai bien eu, des medichloriens, quel concept idiot... Utilise la haine et tout ça, tu verras c'est facile."));
         }
+        return aggregatedLines.ToArray();
     }
 }
