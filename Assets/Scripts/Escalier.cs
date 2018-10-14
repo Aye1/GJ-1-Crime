@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Escalier : MonoBehaviour
 {
+    public Vector3 exitPosition;
 
     // Use this for initialization
     void Start()
@@ -18,13 +19,14 @@ public class Escalier : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (SceneManager.GetActiveScene().buildIndex == 0)
-        //{
-        //    SceneManager.LoadScene(1);
-        //}
-        //else
-        //{
-        //    SceneManager.LoadScene(0);
-        //}
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+        GameManager.Instance.shouldTeleportToStairs = true;
     }
 }
