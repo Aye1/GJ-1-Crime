@@ -13079,6 +13079,12 @@ Prefab:
       propertyPath: canInteract
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114570055500795014, guid: d553ee99844aef9498273c73e1a7dd20,
+        type: 2}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 65c69c7da9c5d4ddd80e60399d1cf8f1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d553ee99844aef9498273c73e1a7dd20, type: 2}
   m_IsPrefabAsset: 0
