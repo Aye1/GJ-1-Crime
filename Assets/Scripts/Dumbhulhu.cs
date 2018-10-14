@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Dumbhulhu : Character {
     // Use this for initialization
@@ -33,4 +34,9 @@ public class Dumbhulhu : Character {
         }
     }
 
+    protected override void DoAfterDialogue(object sender, EventArgs args) {
+        if(Inventory.Instance.HasVictim) {
+            GameManager.Instance.DisplayEndGameScreen();
+        }
+    }
 }

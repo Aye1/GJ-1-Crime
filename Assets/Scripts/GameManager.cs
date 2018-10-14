@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private Player _player;
     public bool shouldTeleportToStairs = false;
+    public GameObject endGameScreen;
 
     public static GameManager Instance
     {
@@ -52,5 +53,9 @@ public class GameManager : MonoBehaviour
     {
         Vector3 pos = FindObjectOfType<Escalier>().exitPosition;
         _player.transform.position = pos;
+    }
+
+    public void DisplayEndGameScreen() {
+        endGameScreen.SetActive(true);
     }
 }

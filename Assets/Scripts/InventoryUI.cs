@@ -10,6 +10,7 @@ public class InventoryUI : MonoBehaviour {
     public Image wingsImage;
     public Image forceImage;
     public Image bodyImage;
+    public Image deathStarImage;
 
 	// Use this for initialization
 	void Start () {
@@ -26,5 +27,6 @@ public class InventoryUI : MonoBehaviour {
         wingsImage.gameObject.SetActive(Inventory.Instance.CanFly);
         forceImage.gameObject.SetActive(Inventory.Instance.CanUseTheForce);
         bodyImage.gameObject.SetActive(Inventory.Instance.HasVictim);
+        deathStarImage.gameObject.SetActive(Inventory.Instance.HasTakenDeathStar);
     }
 }

@@ -28,6 +28,7 @@ public class DiscoDeathStar : Character
     {
         if (Inventory.Instance.CanUseTheForce)
         {
+            Inventory.Instance.HasTakenDeathStar = true;
             Destroy(this.gameObject);
         }
     }
