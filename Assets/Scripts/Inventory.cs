@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour
     public bool HasFreddyScroll { get; set; }
     public bool CanUseTheForce { get; set; }
     public bool HasSeenDeathStar { get; set; }
+    public bool HasVictim { get; set; }
 
     private static Inventory _instance;
     public static Inventory Instance
