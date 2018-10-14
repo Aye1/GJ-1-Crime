@@ -57,13 +57,13 @@ public class Initializer : MonoBehaviour
     {
         foreach (var currHole in allHoles)
         {
-            currHole.transform.position = new Vector3(currHole.transform.position.x, currHole.transform.position.y, 1);
+            currHole.transform.position = new Vector3(currHole.transform.position.x, currHole.transform.position.y, -1);
         }
     }
 
     private void AddHoleTo(Vector2 position)
     {
-        allHoles.Add(Instantiate(BaseHole, new Vector3(position.x, position.y + 0.5f, 1), Quaternion.identity, this.transform));
+        allHoles.Add(Instantiate(BaseHole, new Vector3(position.x, position.y + 0.5f, -1), Quaternion.identity, this.transform));
     }
 
     private void CreateGrid()
