@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndDarknessTrigger : MonoBehaviour {
+public class SuccessDracula : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +16,6 @@ public class EndDarknessTrigger : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FindObjectOfType<Dracula>().ActivateDarkness(false);
+        FindObjectOfType<Initializer>().ShowHoles();
     }
 }
