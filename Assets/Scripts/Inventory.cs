@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
     public bool HasVictim { get; set; }
     public bool AllowedToTakeVictim { get; set; }
     public bool HasTakenDeathStar { get; set; }
+    public bool DeathStarReturned { get; set; }
 
     private static Inventory _instance;
     public static Inventory Instance

@@ -9665,7 +9665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   picture: {fileID: 21300000, guid: 1b5c476b469a14062aac95dfa2f00705, type: 3}
   characterName: 
-  canInteract: 0
+  canInteract: 1
 --- !u!1 &1198053542
 GameObject:
   m_ObjectHideFlags: 0

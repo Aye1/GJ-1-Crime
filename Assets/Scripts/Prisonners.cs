@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class Prisonners : Character
 {
-
     private List<DialogLine> allLines;
 
     private void Start()

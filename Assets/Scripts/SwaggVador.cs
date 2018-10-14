@@ -3,13 +3,21 @@ using System.Collections.Generic;
 
 public class SwaggVador : Character
 {
-    private bool _deathStarReturned;
+    //private bool _deathStarReturned;
     private bool _questGiven;
     private bool _willGrantForce;
 
+    private void Update()
+    {
+        if (Inventory.Instance.DeathStarReturned)
+        {
+            FindObjectOfType<Dancefloor>().SpotlightsOn();
+        }
+    }
+
     protected override DialogLine[] GetDialogLines()
     {
-        if (Inventory.Instance.CanUseTheForce && _deathStarReturned)
+        if (Inventory.Instance.CanUseTheForce && Inventory.Instance.DeathStarReturned)
         {
             return GetABlankPhrase(this);
         }
@@ -69,12 +77,12 @@ public class SwaggVador : Character
                     "Utilise la haine et tout ça, tu verras c'est facile."));
         }
 
-        if (Inventory.Instance.HasTakenDeathStar && !_deathStarReturned)
+        if (Inventory.Instance.HasTakenDeathStar && !Inventory.Instance.DeathStarReturned)
         {
             aggregatedLines.Add(new DialogLine("Voila votre Death Star, M. Vador", FindObjectOfType<Player>()));
             aggregatedLines.Add(new DialogLine("La soiree peut repreeeeendre", this));
             Inventory.Instance.HasTakenDeathStar = false;
-            _deathStarReturned = true;            
+            Inventory.Instance.DeathStarReturned = true;            
         }
         return aggregatedLines.ToArray();
     }
@@ -86,7 +94,7 @@ public class SwaggVador : Character
             Inventory.Instance.CanUseTheForce = true;
             _willGrantForce = false;
         }
-        if (_deathStarReturned)
+        if (Inventory.Instance.DeathStarReturned)
         {
             FindObjectOfType<Dancefloor>().SpotlightsOn();
         }
