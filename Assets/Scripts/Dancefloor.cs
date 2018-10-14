@@ -6,6 +6,7 @@ using Random = System.Random;
 public class Dancefloor : MonoBehaviour
 {
     public List<Color> colors;
+    public GameObject spotlights;
 
     Timer _timer;
     Random _random;
@@ -47,5 +48,9 @@ public class Dancefloor : MonoBehaviour
     {
         int index = _random.Next(0, colors.Count);
         return colors.ToArray()[index];
+    }
+
+    public void SpotlightsOn() {
+        spotlights.SetActive(true);
     }
 }

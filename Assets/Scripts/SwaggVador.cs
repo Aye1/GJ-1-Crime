@@ -72,6 +72,7 @@ public class SwaggVador : Character
             aggregatedLines.Add(new DialogLine("La soirée peut repreeeeendre", this));
             Inventory.Instance.HasTakenDeathStar = false;
             _deathStarReturned = true;
+            FindObjectOfType<Dancefloor>().SpotlightsOn();
         }
         return aggregatedLines.ToArray();
     }
