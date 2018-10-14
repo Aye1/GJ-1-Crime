@@ -10,7 +10,8 @@ public class Prisonners : Character
     {
         allLines = new List<DialogLine>
         {
-            new DialogLine("Je suis pas venu ici pour souffrir OK ?", this)
+            new DialogLine("Je suis pas venu ici pour souffrir OK ?", this),
+            new DialogLine("Je vais vous mettre une mauvaise note sur airbnb", this),
         };
     }
 
@@ -30,7 +31,7 @@ public class Prisonners : Character
             {
                 BuildMultiLineDialog(
                     this,
-                    "Si ça vous ennuie pas j'aime autant rester là finalement, on n'y est pas si mal."),
+                    "Si ça vous ennuie pas j'aime autant rester la finalement, on n'y est pas si mal."),
                 BuildMultiLineDialog(
                     this,
                     "Non, vraiment j'insite..."),

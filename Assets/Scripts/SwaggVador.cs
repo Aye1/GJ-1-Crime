@@ -46,7 +46,7 @@ public class SwaggVador : Character
         if (Inventory.Instance.HasSeenDeathStar && !Inventory.Instance.HasTakenDeathStar)
         {
             _willGrantForce = true;
-            aggregatedLines.Add(new DialogLine("Je l'ai trouvée, elle est devant l'escalier", FindObjectOfType<Player>()));
+            aggregatedLines.Add(new DialogLine("Je l'ai trouvee, elle est devant l'escalier", FindObjectOfType<Player>()));
             aggregatedLines.Add(
                 BuildMultiLineDialog(
                     this,
@@ -71,8 +71,8 @@ public class SwaggVador : Character
 
         if (Inventory.Instance.HasTakenDeathStar && !_deathStarReturned)
         {
-            aggregatedLines.Add(new DialogLine("Voilà votre Death Star, M. Vador", FindObjectOfType<Player>()));
-            aggregatedLines.Add(new DialogLine("La soirée peut repreeeeendre", this));
+            aggregatedLines.Add(new DialogLine("Voila votre Death Star, M. Vador", FindObjectOfType<Player>()));
+            aggregatedLines.Add(new DialogLine("La soiree peut repreeeeendre", this));
             Inventory.Instance.HasTakenDeathStar = false;
             _deathStarReturned = true;            
         }

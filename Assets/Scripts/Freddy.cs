@@ -28,10 +28,10 @@ public class Freddy : Character
                 BuildMultiLineDialog(
                     this,
                     "Il vous faut un FDP pour ça.",
-                    "Un Formulaire de Demande de Prisonnier, vous n'êtes pas très vif vous..."));
+                    "Un Formulaire de Demande de Prisonnier, vous n'êtes pas tres vif vous..."));
             aggregatedLines.Add(BuildMultiLineDialog(
                     this,
-                    "Vous en trouverez un dans la remise à l'autre bout du hall mais attention le sol s'est effondré."));
+                    "Vous en trouverez un dans la remise a l'autre bout du hall mais attention le sol s'est effondre."));
             aggregatedLines.Add(BuildMultiLineDialog(
                     this,
                     "On attend la livraison d'un formulaire SS... Sauvetage des Sols"));

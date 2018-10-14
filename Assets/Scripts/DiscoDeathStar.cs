@@ -16,7 +16,7 @@ public class DiscoDeathStar : Character
 
         if (!Inventory.Instance.CanUseTheForce)
         {
-            return new DialogLine[] { new DialogLine("Ca semble extrêmemement lourd...", FindObjectOfType<Player>()) };
+            return new DialogLine[] { new DialogLine("Ca semble extremement lourd...", FindObjectOfType<Player>()) };
         }
         else
         {

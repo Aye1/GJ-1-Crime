@@ -19,15 +19,15 @@ public class Dumbhulhu : Character {
         if (!Inventory.Instance.HasVictim)
         {
             DialogLine[] lines = {
-                new DialogLine("Oh, c'est toi. Prêt pour l'examen final de cultiste ?", this),
-                new DialogLine("Le sacrifice aura lieu ici même, c'est moi qui superviserai l'épreuve.", this),
+                new DialogLine("Oh, c'est toi. Pret pour l'examen final de cultiste ?", this),
+                new DialogLine("Le sacrifice aura lieu ici même, c'est moi qui superviserai l'epreuve.", this),
                 new DialogLine("Pour la victime, va voir le responsable des ressources humaines, Freddy.", this),
                 new DialogLine("Reviens me voir quand tu l'as.", this)
             };
             return lines;
         } else {
             DialogLine[] lines = {
-                new DialogLine("Je vois que tu as récupéré la victime !", this),
+                new DialogLine("Je vois que tu as recupere la victime !", this),
                 new DialogLine("Passons au rituel, montre moi le résultat de ton apprentissage.", this)
             };
             return lines;
