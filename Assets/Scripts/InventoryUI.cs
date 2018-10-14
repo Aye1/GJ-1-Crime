@@ -7,6 +7,9 @@ public class InventoryUI : MonoBehaviour {
 
     [Header("UI Bindings")]
     public Image scrollImage;
+    public Image wingsImage;
+    public Image forceImage;
+    public Image bodyImage;
 
 	// Use this for initialization
 	void Start () {
@@ -20,5 +23,8 @@ public class InventoryUI : MonoBehaviour {
 
     private void ManageVisibility() {
         scrollImage.gameObject.SetActive(Inventory.Instance.HasFreddyScroll);
+        wingsImage.gameObject.SetActive(Inventory.Instance.CanFly);
+        forceImage.gameObject.SetActive(Inventory.Instance.CanUseTheForce);
+        bodyImage.gameObject.SetActive(Inventory.Instance.HasVictim);
     }
 }
