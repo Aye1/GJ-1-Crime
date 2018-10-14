@@ -47,3 +47,6 @@ TagManager:
   - name: Ground
     uniqueID: 301496663
     locked: 0
+  - name: Brasero
+    uniqueID: 595500669
+    locked: 0

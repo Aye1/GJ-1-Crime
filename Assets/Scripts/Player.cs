@@ -37,14 +37,27 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Hole") && !Inventory.Instance.CanFly)
+        if (collision.gameObject.CompareTag("Hole"))
         {
-            this.transform.position = collision.gameObject.GetComponent<Hole>().RespawnPosition;
-            transform.position = new Vector3(transform.position.x, transform.position.y, -2.0f);
-            lockMove = true;
+            if(Inventory.Instance.CanFly)
+            {
+                animator.SetBool("IsFlying", true);
+            }
+            else
+            {
+                this.transform.position = collision.gameObject.GetComponent<Hole>().RespawnPosition;
+                transform.position = new Vector3(transform.position.x, transform.position.y, -2.0f);
+                lockMove = true;
+            }
         }
     }
-
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Hole"))
+        {
+            animator.SetBool("IsFlying", false);
+        }
+    }
     private void ForceStop()
     {
         StopMovement();
